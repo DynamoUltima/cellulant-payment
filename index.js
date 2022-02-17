@@ -4,7 +4,7 @@ const cors = require('cors')
 
 let checkoutEncrypt = require('@cellulant/checkout_encryption');
 
-const PORT =8080;
+const PORT = process.env.PORT || 8080;
 const accessKey = "<YOUR_ACCESS_KEY>"
 const IVKey = "nzC8VqDZtP96C8Fk";
 const secretKey = "CvS4Zy2dMsDAqVny";
