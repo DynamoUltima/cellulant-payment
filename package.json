@@ -9,6 +9,10 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "17.x",
+    "npm": "8.x"
+  },
   "dependencies": {
     "@cellulant/checkout_encryption": "^1.0.4",
     "cors": "^2.8.5",
