@@ -10,12 +10,15 @@ const IVKey = "nzC8VqDZtP96C8Fk";
 const secretKey = "CvS4Zy2dMsDAqVny";
 const algorithm = "aes-256-cbc";
 
+const liveSecretKey = "AfREDRvFHfDMiDKZ";
+const liveIVkey = "ytAFYyYwGQttEmZN";
+
 app.use(express.json());
 app.use(cors());
 
-app.get('/payment',(req,res)=>{
+app.get('/payment', (req, res) => {
 
-	var payloadObj= req.body;
+	var payloadObj = req.body;
 	// console.log(payloadObj);
 
 
@@ -39,24 +42,24 @@ app.get('/payment',(req,res)=>{
 	// 	"callback_url":"http://abc.com/callback",
 	// 	"charge_beneficiaries":null
 	// };
-	
-		const payloadStr = JSON.stringify(payloadObj);
-	
-	
-		 // Create object of the Encryption class  
-	  let encryption = new checkoutEncrypt.Encryption(IVKey, secretKey, algorithm);
-	
-	
-	  var result = encryption.encrypt(payloadStr);
-	
-	 // print the result
-	 console.log(result);
+
+	const payloadStr = JSON.stringify(payloadObj);
+
+
+	// Create object of the Encryption class  
+	let encryption = new checkoutEncrypt.Encryption(liveIVkey, liveSecretKey, algorithm);
+
+
+	var result = encryption.encrypt(payloadStr);
+
+	// print the result
+	console.log(result);
 	res.status(200).send({
-		encryptedResults:result
+		encryptedResults: result
 	})
 
 });
 
-app.listen(PORT,()=>console.log(`it's alive on port${PORT}`));
+app.listen(PORT, () => console.log(`it's alive on port${PORT}`));
 
 
