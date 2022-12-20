@@ -53,7 +53,7 @@ app.get('/payment', (req, res) => {
 	var result = encryption.encrypt(payloadStr);
 
 	// print the result
-	console.log(result);
+	// console.log(result);
 	res.status(200).send({
 		encryptedResults: result
 	})
